@@ -1,14 +1,68 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
+  <title>AngularPOS</title>
   <meta charset="utf-8">
-  <title>Angularpos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <base href="/">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- CSS
+    ================================================== -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/colors/blue.css">
+  
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <app-root></app-root>
+  <!-- Wrapper -->
+  <div id="wrapper">
+  
+    <app-root></app-root>
+  
+  </div>
+  <!-- Wrapper / End -->
+  <!-- Scripts
+    ================================================== -->
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/jquery-migrate-3.0.0.min.js"></script>
+  <script src="assets/js/mmenu.min.js"></script>
+  <script src="assets/js/tippy.all.min.js"></script>
+  <script src="assets/js/simplebar.min.js"></script>
+  <script src="assets/js/bootstrap-slider.min.js"></script>
+  <script src="assets/js/bootstrap-select.min.js"></script>
+  <script src="assets/js/snackbar.js"></script>
+  <script src="assets/js/clipboard.min.js"></script>
+  <script src="assets/js/counterup.min.js"></script>
+  <script src="assets/js/magnific-popup.min.js"></script>
+  <script src="assets/js/slick.min.js"></script>
+  <script src="assets/js/custom.js"></script>
+  
+  <script charset="utf-8" src="https://cinetpay.com/cdn/seamless_sdk/latest/cinetpay.prod.min.js" type="text/javascript">
+  </script>
+  
+  <script>
+    $('#snackbar-user-status label').click(function () {
+      Snackbar.show({
+        text: 'Your status has been changed!',
+        pos: 'bottom-center',
+        showAction: false,
+        actionText: "Dismiss",
+        duration: 3000,
+        textColor: '#fff',
+        backgroundColor: '#383838'
+      });
+    });
+  </script>
+  
+  
+  <!-- Google Autocomplete -->
+  <script>
+    // Autocomplete adjustment for homepage
+    if ($('.intro-banner-search-form')[0]) {
+      setTimeout(function () {
+        $(".pac-container").prependTo(".intro-search-field.with-autocomplete");
+      }, 300);
+    }
+  </script>
 </body>
 </html>
