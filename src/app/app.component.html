@@ -1,1 +1,27 @@
-<router-outlet></router-outlet>
+<app-header></app-header>
+
+<div class="dashboard-container">
+
+    <!-- Dashboard Sidebar
+	    ================================================== -->
+    <app-side *ngIf="on" ></app-side>
+    <!-- Dashboard Content
+        ================================================== -->
+    <div class="dashboard-content-container">
+
+        <div class="simplebar-scroll-content">
+            <div class="simplebar-content">
+                <div class="dashboard-content-inner">
+
+                    <router-outlet></router-outlet>
+
+                    <app-footer *ngIf="on"></app-footer>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Dashboard Content / End -->
+
+
+</div>

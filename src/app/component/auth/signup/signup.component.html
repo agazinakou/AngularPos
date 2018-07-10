@@ -1,3 +1,57 @@
-<p>
-  signup works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <!-- Login -->
+      <div class="popup-tab-content" id="login" style="">
+
+        <!-- Welcome Text -->
+        <div class="welcome-text">
+          <h3>Let's create your account!</h3>
+          <span>Log in to your account
+            <a routerLink="/" class="register-tab">Sign Up!</a>
+          </span>
+        </div>
+
+        <!-- Form -->
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" id="login-form">
+
+          <div class="input-with-icon-left">
+            <i class="icon-feather-user"></i>
+            <input type="text" class="input-text with-border" placeholder="Username" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+          </div>
+          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">Username is required</div>
+          </div>
+
+          <div class="input-with-icon-left">
+            <i class="icon-material-baseline-mail-outline"></i>
+            <input type="text" class="input-text with-border" placeholder="Email Address" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+          </div>
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+          </div>
+
+
+          <div class="input-with-icon-left">
+            <i class="icon-material-outline-lock"></i>
+            <input type="password" class="input-text with-border" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+          </div>
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+
+
+          <!-- Button -->
+          <button class="button full-width button-sliding-icon ripple-effect" [disabled]="loading">Log In
+            <i class="icon-material-outline-arrow-right-alt"></i>
+          </button>
+
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
