@@ -5,194 +5,218 @@
 
 <!-- Row -->
 <div class="row">
+  <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
 
-  <!-- Dashboard Box -->
-  <div class="col-xl-12">
-    <div class="dashboard-box margin-top-0">
+      <!-- Dashboard Box -->
+      <div class="col-xl-12">
+        <div class="dashboard-box margin-top-0">
 
-      <!-- Headline -->
-      <div class="headline">
-        <h3>
-          <i class="icon-material-outline-account-circle"></i> My Account</h3>
-      </div>
-
-      <div class="content with-padding padding-bottom-0">
-
-        <div class="row">
-
-          <div class="col-auto">
-            <div class="avatar-wrapper" data-tippy-placement="bottom" data-tippy="" data-original-title="Change Avatar">
-              <img class="profile-pic" src="images/user-avatar-placeholder.png" alt="">
-              <div class="upload-button"></div>
-              <input class="file-upload" type="file" accept="image/*">
-            </div>
+          <!-- Headline -->
+          <div class="headline">
+            <h3>
+              <i class="icon-material-outline-account-circle"></i> My Account</h3>
           </div>
+            <div class="content with-padding padding-bottom-0">
 
-          <div class="col">
-            <div class="row">
+              <div class="row">
 
-              <div class="col-xl-6">
-                <div class="submit-field">
-                  <h5>First Name</h5>
-                  <input type="text" class="with-border" value="Tom">
+                <div class="col-auto">
+                  <div class="avatar-wrapper" data-tippy-placement="bottom" data-tippy="" data-original-title="Change Avatar">
+                    <img class="profile-pic" src="assets/images/user-avatar-placeholder.png" alt="">
+                    <div class="upload-button"></div>
+                    <input class="file-upload" type="file" accept="image/*" formControlName="logo" [ngClass]="{ 'is-invalid': submitted && f.logo.errors }">
+                  </div>
+                  <div *ngIf="submitted && f.logo.errors" class="invalid-feedback">
+                    <div *ngIf="f.logo.errors.required">Logo is required</div>
+                  </div>
                 </div>
-              </div>
 
-              <div class="col-xl-6">
-                <div class="submit-field">
-                  <h5>Last Name</h5>
-                  <input type="text" class="with-border" value="Smith">
-                </div>
-              </div>
-              
-              <div class="col-xl-6">
-                <div class="submit-field">
-                  <h5>Pays</h5>
-                  <select class="selectpicker with-border" data-size="7" title="Select Job Type" data-live-search="true">
-                    <option value="AR">Argentina</option>
-                    <option value="AM">Armenia</option>
-                    <option value="AW">Aruba</option>
-                    <option value="AU">Australia</option>
-                    <option value="AT">Austria</option>
-                    <option value="AZ">Azerbaijan</option>
-                    <option value="BS">Bahamas</option>
-                    <option value="BH">Bahrain</option>
-                    <option value="BD">Bangladesh</option>
-                    <option value="BB">Barbados</option>
-                    <option value="BY">Belarus</option>
-                    <option value="BE">Belgium</option>
-                    <option value="BZ">Belize</option>
-                    <option value="BJ">Benin</option>
-                    <option value="BM">Bermuda</option>
-                    <option value="BT">Bhutan</option>
-                    <option value="BO">Bolivia, Plurinational State of</option>
-                    <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
-                    <option value="BA">Bosnia and Herzegovina</option>
-                    <option value="BW">Botswana</option>
-                    <option value="BV">Bouvet Island</option>
-                    <option value="BR">Brazil</option>
-                    <option value="IO">British Indian Ocean Territory</option>
-                    <option value="BN">Brunei Darussalam</option>
-                    <option value="BG">Bulgaria</option>
-                    <option value="BF">Burkina Faso</option>
-                    <option value="BI">Burundi</option>
-                    <option value="KH">Cambodia</option>
-                    <option value="CM">Cameroon</option>
-                    <option value="CA">Canada</option>
-                    <option value="CV">Cape Verde</option>
-                    <option value="KY">Cayman Islands</option>
-                    <option value="CF">Central African Republic</option>
-                    <option value="TD">Chad</option>
-                    <option value="CC">Cocos (Keeling) Islands</option>
-                    <option value="CO">Colombia</option>
-                    <option value="KM">Comoros</option>
-                    <option value="CG">Congo</option>
-                    <option value="CD">Congo, the Democratic Republic of the</option>
-                    <option value="CK">Cook Islands</option>
-                    <option value="CR">Costa Rica</option>
-                    <option value="CI" selected>Côte d'Ivoire</option>
-                    <option value="HR">Croatia</option>
-                    <option value="CU">Cuba</option>
-                    <option value="CW">Curaçao</option>
-                    <option value="CY">Cyprus</option>
-                    <option value="CZ">Czech Republic</option>
-                    <option value="DK">Denmark</option>
-                    <option value="DJ">Djibouti</option>
-                    <option value="DM">Dominica</option>
-                    <option value="DO">Dominican Republic</option>
-                    <option value="EC">Ecuador</option>
-                    <option value="EG">Egypt</option>
-                    <option value="GP">Guadeloupe</option>
-                    <option value="GU">Guam</option>
-                    <option value="GT">Guatemala</option>
-                    <option value="GG">Guernsey</option>
-                    <option value="GN">Guinea</option>
-                    <option value="GW">Guinea-Bissau</option>
-                    <option value="GY">Guyana</option>
-                    <option value="HT">Haiti</option>
-                    <option value="HM">Heard Island and McDonald Islands</option>
-                    <option value="VA">Holy See (Vatican City State)</option>
-                    <option value="HN">Honduras</option>
-                    <option value="HK">Hong Kong</option>
-                    <option value="HU">Hungary</option>
-                    <option value="IS">Iceland</option>
-                    <option value="IN">India</option>
-                    <option value="ID">Indonesia</option>
-                    <option value="MP">Northern Mariana Islands</option>
-                    <option value="NO">Norway</option>
-                    <option value="OM">Oman</option>
-                    <option value="PK">Pakistan</option>
-                    <option value="PW">Palau</option>
-                    <option value="PS">Palestinian Territory, Occupied</option>
-                    <option value="PA">Panama</option>
-                    <option value="PG">Papua New Guinea</option>
-                    <option value="PY">Paraguay</option>
-                    <option value="PE">Peru</option>
-                    <option value="PH">Philippines</option>
-                    <option value="PN">Pitcairn</option>
-                    <option value="PL">Poland</option>
-                    <option value="PT">Portugal</option>
-                    <option value="PR">Puerto Rico</option>
-                    <option value="QA">Qatar</option>
-                    <option value="RE">Réunion</option>
-                    <option value="RO">Romania</option>
-                    <option value="RU">Russian Federation</option>
-                    <option value="RW">Rwanda</option>
-                    <option value="SJ">Svalbard and Jan Mayen</option>
-                    <option value="SZ">Swaziland</option>
-                    <option value="SE">Sweden</option>
-                    <option value="CH">Switzerland</option>
-                    <option value="SY">Syrian Arab Republic</option>
-                    <option value="TR">Turkey</option>
-                    <option value="TM">Turkmenistan</option>
-                    <option value="TC">Turks and Caicos Islands</option>
-                    <option value="TV">Tuvalu</option>
-                    <option value="UG">Uganda</option>
-                    <option value="UA">Ukraine</option>
-                    <option value="AE">United Arab Emirates</option>
-                    <option value="GB">United Kingdom</option>
-                    <option value="US">United States</option>
-                    <option value="UY">Uruguay</option>
-                    <option value="UZ">Uzbekistan</option>
-                    <option value="YE">Yemen</option>
-                    <option value="ZM">Zambia</option>
-                    <option value="ZW">Zimbabwe</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-xl-6">
-                <div class="submit-field">
-                  <h5>Ville</h5>
-                  <input type="text" class="with-border" value="Abidjan">
-                </div>
-              </div>
-              <div class="col-xl-6">
-                <div class="submit-field">
-                  <h5>Company name</h5>
-                  <input type="text" class="with-border" value="WAZ">
-                </div>
-              </div>
-              <div class="col-xl-6">
-                <div class="submit-field">
-                  <h5>Secteur</h5>
-                  <select class="selectpicker with-border" data-size="7" title="Select your secteur" data-live-search="true">
-                    <option>Fast-food</option>
-                  </select>
+                <div class="col">
+                  <div class="row">
+
+                    <div class="col-xl-6">
+                      <div class="submit-field">
+                        <h5>First Name</h5>
+                        <input type="text" class="with-border" formControlName="firstname" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }">
+                      </div>
+                      <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstname.errors.required">Firstname is required</div>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-6">
+                      <div class="submit-field">
+                        <h5>Last Name</h5>
+                        <input type="text" class="with-border" formControlName="lastname" [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }">
+                      </div>
+                      <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                        <div *ngIf="f.lastname.errors.required">Lastname is required</div>
+                      </div>
+                    </div>
+                    
+                    <div class="col-xl-6">
+                      <div class="submit-field">
+                        <h5>Country</h5>
+                        <select class="selectpicker with-border" data-size="7" title="Select your Country" data-live-search="true" formControlName="country" [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
+                          <option value="AR">Argentina</option>
+                          <option value="AM">Armenia</option>
+                          <option value="AW">Aruba</option>
+                          <option value="AU">Australia</option>
+                          <option value="AT">Austria</option>
+                          <option value="AZ">Azerbaijan</option>
+                          <option value="BS">Bahamas</option>
+                          <option value="BH">Bahrain</option>
+                          <option value="BD">Bangladesh</option>
+                          <option value="BB">Barbados</option>
+                          <option value="BY">Belarus</option>
+                          <option value="BE">Belgium</option>
+                          <option value="BZ">Belize</option>
+                          <option value="BJ">Benin</option>
+                          <option value="BM">Bermuda</option>
+                          <option value="BT">Bhutan</option>
+                          <option value="BO">Bolivia, Plurinational State of</option>
+                          <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                          <option value="BA">Bosnia and Herzegovina</option>
+                          <option value="BW">Botswana</option>
+                          <option value="BV">Bouvet Island</option>
+                          <option value="BR">Brazil</option>
+                          <option value="IO">British Indian Ocean Territory</option>
+                          <option value="BN">Brunei Darussalam</option>
+                          <option value="BG">Bulgaria</option>
+                          <option value="BF">Burkina Faso</option>
+                          <option value="BI">Burundi</option>
+                          <option value="KH">Cambodia</option>
+                          <option value="CM">Cameroon</option>
+                          <option value="CA">Canada</option>
+                          <option value="CV">Cape Verde</option>
+                          <option value="KY">Cayman Islands</option>
+                          <option value="CF">Central African Republic</option>
+                          <option value="TD">Chad</option>
+                          <option value="CC">Cocos (Keeling) Islands</option>
+                          <option value="CO">Colombia</option>
+                          <option value="KM">Comoros</option>
+                          <option value="CG">Congo</option>
+                          <option value="CD">Congo, the Democratic Republic of the</option>
+                          <option value="CK">Cook Islands</option>
+                          <option value="CR">Costa Rica</option>
+                          <option value="CI" selected>Côte d'Ivoire</option>
+                          <option value="HR">Croatia</option>
+                          <option value="CU">Cuba</option>
+                          <option value="CW">Curaçao</option>
+                          <option value="CY">Cyprus</option>
+                          <option value="CZ">Czech Republic</option>
+                          <option value="DK">Denmark</option>
+                          <option value="DJ">Djibouti</option>
+                          <option value="DM">Dominica</option>
+                          <option value="DO">Dominican Republic</option>
+                          <option value="EC">Ecuador</option>
+                          <option value="EG">Egypt</option>
+                          <option value="GP">Guadeloupe</option>
+                          <option value="GU">Guam</option>
+                          <option value="GT">Guatemala</option>
+                          <option value="GG">Guernsey</option>
+                          <option value="GN">Guinea</option>
+                          <option value="GW">Guinea-Bissau</option>
+                          <option value="GY">Guyana</option>
+                          <option value="HT">Haiti</option>
+                          <option value="HM">Heard Island and McDonald Islands</option>
+                          <option value="VA">Holy See (Vatican City State)</option>
+                          <option value="HN">Honduras</option>
+                          <option value="HK">Hong Kong</option>
+                          <option value="HU">Hungary</option>
+                          <option value="IS">Iceland</option>
+                          <option value="IN">India</option>
+                          <option value="ID">Indonesia</option>
+                          <option value="MP">Northern Mariana Islands</option>
+                          <option value="NO">Norway</option>
+                          <option value="OM">Oman</option>
+                          <option value="PK">Pakistan</option>
+                          <option value="PW">Palau</option>
+                          <option value="PS">Palestinian Territory, Occupied</option>
+                          <option value="PA">Panama</option>
+                          <option value="PG">Papua New Guinea</option>
+                          <option value="PY">Paraguay</option>
+                          <option value="PE">Peru</option>
+                          <option value="PH">Philippines</option>
+                          <option value="PN">Pitcairn</option>
+                          <option value="PL">Poland</option>
+                          <option value="PT">Portugal</option>
+                          <option value="PR">Puerto Rico</option>
+                          <option value="QA">Qatar</option>
+                          <option value="RE">Réunion</option>
+                          <option value="RO">Romania</option>
+                          <option value="RU">Russian Federation</option>
+                          <option value="RW">Rwanda</option>
+                          <option value="SJ">Svalbard and Jan Mayen</option>
+                          <option value="SZ">Swaziland</option>
+                          <option value="SE">Sweden</option>
+                          <option value="CH">Switzerland</option>
+                          <option value="SY">Syrian Arab Republic</option>
+                          <option value="TR">Turkey</option>
+                          <option value="TM">Turkmenistan</option>
+                          <option value="TC">Turks and Caicos Islands</option>
+                          <option value="TV">Tuvalu</option>
+                          <option value="UG">Uganda</option>
+                          <option value="UA">Ukraine</option>
+                          <option value="AE">United Arab Emirates</option>
+                          <option value="GB">United Kingdom</option>
+                          <option value="US">United States</option>
+                          <option value="UY">Uruguay</option>
+                          <option value="UZ">Uzbekistan</option>
+                          <option value="YE">Yemen</option>
+                          <option value="ZM">Zambia</option>
+                          <option value="ZW">Zimbabwe</option>
+                        </select>
+                      </div>
+                      <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                        <div *ngIf="f.country.errors.required">Country is required</div>
+                      </div>
+                    </div>
+                    <div class="col-xl-6">
+                      <div class="submit-field">
+                        <h5>City</h5>
+                        <input type="text" class="with-border" formControlName="city" [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+                      </div>
+                      <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                        <div *ngIf="f.city.errors.required">City is required</div>
+                      </div>
+                    </div>
+                    <div class="col-xl-6">
+                      <div class="submit-field">
+                        <h5>Company name</h5>
+                        <input type="text" class="with-border" formControlName="company" [ngClass]="{ 'is-invalid': submitted && f.company.errors }">
+                      </div>
+                      <div *ngIf="submitted && f.company.errors" class="invalid-feedback">
+                        <div *ngIf="f.company.errors.required">Company is required</div>
+                      </div>
+                    </div>
+                    <div class="col-xl-6">
+                      <div class="submit-field">
+                        <h5>Secteur</h5>
+                        <select class="selectpicker with-border" data-size="7" title="Select your secteur" data-live-search="true" formControlName="secteur" [ngClass]="{ 'is-invalid': submitted && f.secteur.errors }">
+                          <option>Fast-food</option>
+                        </select>
+                      </div>
+                      <div *ngIf="submitted && f.secteur.errors" class="invalid-feedback">
+                        <div *ngIf="f.secteur.errors.required">Secteur is required</div>
+                      </div>
+                    </div>
+
+                  </div>
                 </div>
               </div>
 
             </div>
-          </div>
         </div>
-
       </div>
-    </div>
-  </div>
 
-  <!-- Button -->
-  <div class="col-xl-12">
-    <a href="#" class="button ripple-effect big margin-top-30">Save Changes</a>
-  </div>
+      <!-- Button -->
+      <div class="col-xl-12">
+        <button class="button ripple-effect big margin-top-30" [disabled]="loading">Save Changes</button>
+      </div>
+
+
+  </form>
 
 </div>
 <!-- Row / End -->  

@@ -13,6 +13,8 @@ import { SettingsComponent } from './component/settings/settings.component';
 import { SideComponent } from './component/shared/side/side.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { ReportingComponent } from './component/reporting/reporting.component';
+import { TransactionsComponent } from './component/transactions/transactions.component';
+import { DataTableModule } from "angular-6-datatable";
 
 
 @NgModule({
@@ -27,12 +29,14 @@ import { ReportingComponent } from './component/reporting/reporting.component';
     SideComponent,
     DashboardComponent,
     ReportingComponent,
+    TransactionsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
