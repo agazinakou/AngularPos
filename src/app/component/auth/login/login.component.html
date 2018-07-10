@@ -13,22 +13,35 @@
         </div>
 
         <!-- Form -->
-        <form method="post" id="login-form">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" id="login-form">
+          
           <div class="input-with-icon-left">
             <i class="icon-material-baseline-mail-outline"></i>
-            <input type="text" class="input-text with-border" name="emailaddress" id="emailaddress" placeholder="Email Address" required="">
+            <input type="text" class="input-text with-border" placeholder="Email Address" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
           </div>
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+          </div>
+          
 
           <div class="input-with-icon-left">
             <i class="icon-material-outline-lock"></i>
-            <input type="password" class="input-text with-border" name="password" id="password" placeholder="Password" required="">
+            <input type="password" class="input-text with-border" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
           </div>
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+
+
+          <!-- Button -->
+          <button class="button full-width button-sliding-icon ripple-effect" [disabled]="loading">Log In
+            <i class="icon-material-outline-arrow-right-alt"></i>
+          </button>
+          
         </form>
 
-        <!-- Button -->
-        <button class="button full-width button-sliding-icon ripple-effect" type="submit" form="login-form">Log In
-          <i class="icon-material-outline-arrow-right-alt"></i>
-        </button>
 
       </div>
     </div>
