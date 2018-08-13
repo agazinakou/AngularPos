@@ -25,9 +25,9 @@
         <table class="c-table">
           <thead class="c-table__head">
             <tr class="c-table__row">
-              <th class="c-table__cell c-table__cell--head">Quantité</th>
-              <th class="c-table__cell c-table__cell--head">Produit</th>
-              <th class="c-table__cell c-table__cell--head">Prix</th>
+              <th class="c-table__cell c-table__cell--head">Quantity</th>
+              <th class="c-table__cell c-table__cell--head">Product</th>
+              <th class="c-table__cell c-table__cell--head">Price</th>
               <th class="c-table__cell c-table__cell--head">Actions</th>
             </tr>
           </thead>
@@ -46,7 +46,7 @@
           </tbody>
         </table>
         <div *ngIf="basket == ''" class="text-center">
-          <p class="no-basket">Vide</p>
+          <p class="no-basket">Empty</p>
         </div>
         <div class="container">
           <div class="row white-bg  padding-20">
@@ -54,7 +54,7 @@
               Total: {{cartTotal | currency:'XOF':true}}
             </div>
             <div class="col-6">
-              <button class="c-btn c-btn--danger c-btn--fullwidth" (click)="checkout()">Payer</button>
+              <button class="c-btn c-btn--danger c-btn--fullwidth" (click)="checkout()">Buy</button>
             </div>
           </div>
         </div>
