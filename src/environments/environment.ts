@@ -10,6 +10,14 @@ export const environment = {
     site_id: 659913,
     notify_url: 'https://YOUR_NOTIFY_URL',
     currency: 'CFA'
+  },
+  firebase : {
+    apiKey: "AIzaSyAGFtnvDdtupogina4NVcGHzAMPzLpZcbc",
+    authDomain: "angularpos-379cd.firebaseapp.com",
+    databaseURL: "https://angularpos-379cd.firebaseio.com",
+    projectId: "angularpos-379cd",
+    storageBucket: "angularpos-379cd.appspot.com",
+    messagingSenderId: "112372376465"
   }
 };
 

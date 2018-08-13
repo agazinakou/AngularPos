@@ -5,11 +5,15 @@
     </span>
 
     <h4 class="u-mb-medium">Authentification</h4>
-    <form>
+    <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="c-field">
         <label class="c-field__label">Email Address</label>
-        <input class="c-input u-mb-small" type="email" placeholder="" required="">
+        <input class="c-input u-mb-small" type="email" placeholder="" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
       </div>
+                              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">Email is required</div>
+                            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                        </div>
 
       <div class="c-field">
         <label class="c-field__label">Password</label>
