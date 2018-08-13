@@ -3,6 +3,14 @@ A real-time, simple web Point of Sale system written with [Angular 6](https://an
 
 Don't re-invent the wheel, Just re-align It
 
+## Project Principles
+
+- A clean & beautiful interface
+- Feature-set targeted towards single store operation
+- Seamless installation process
+- Many payment methode like [CinetPay](https://cinetpay.com/), 
+- Responsive web app accessible from any device on the network
+
 ## Setup
 To run the project, type the following commands:
 
@@ -16,16 +24,6 @@ This will install all dependencies required to run the node app.
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-
-## Project Principles
-
-- A clean & beautiful interface
-- Feature-set targeted towards single store operation
-- Seamless installation process
-- Many payment methode like [CinetPay](https://cinetpay.com/), 
-- Responsive web app accessible from any device on the network
-
 
 ## Support
 If you need technical support or have any questions, please send a message to agazinakou@gmail.com or via skype: aziiin5

@@ -10,17 +10,20 @@
         <label class="c-field__label">Email Address</label>
         <input class="c-input u-mb-small" type="email" placeholder="" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
       </div>
-                              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                            <div *ngIf="f.email.errors.required">Email is required</div>
-                            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
-                        </div>
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+      </div>
 
       <div class="c-field">
         <label class="c-field__label">Password</label>
-        <input class="c-input u-mb-small" type="password" placeholder="" required="">
+        <input class="c-input u-mb-small" type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
       </div>
-
-      <button class="c-btn c-btn--fullwidth c-btn--info" routerLink="/dash">Login</button>
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+      </div>
+      <button class="c-btn c-btn--fullwidth c-btn--info">Login</button>
     </form>
   </div>
 </div>
