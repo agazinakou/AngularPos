@@ -1,21 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './component/auth/login/login.component';
-import { SignupComponent } from './component/auth/signup/signup.component';
-import { DashboardComponent } from './component/dashboard/dashboard.component';
-import { HomeComponent } from './component/home/home.component';
-import { ReportingComponent } from './component/reporting/reporting.component';
-import { SettingsComponent } from './component/settings/settings.component';
-import { TransactionsComponent } from './component/transactions/transactions.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { DashComponent } from './components/dashboard/dash/dash.component';
+import { SettingsComponent } from './components/dashboard/settings/settings.component';
+import { PosComponent } from './components/pos/pos.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'home', component: HomeComponent },
+  { path: '', component: WelcomeComponent },
+  { path: 'pos', component: PosComponent },
+  { path: 'dash', component: DashComponent },
   { path: 'settings', component: SettingsComponent },
-  { path: 'dash', component: DashboardComponent },
-  { path: 'reporting', component: ReportingComponent },
-  { path: 'transactions', component: TransactionsComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
@@ -24,12 +20,9 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [
-  HomeComponent, 
-  SignupComponent, 
-  LoginComponent, 
-  SettingsComponent, 
-  DashboardComponent,
-  ReportingComponent,
-  TransactionsComponent
+  WelcomeComponent,
+  PosComponent,
+  SettingsComponent,
+  DashComponent,
+  LoginComponent
 ]
-

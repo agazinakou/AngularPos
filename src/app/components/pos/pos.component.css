@@ -1,0 +1,28 @@
+.products-label {
+    background-color: black;
+    position: absolute;
+    font-size: 14px;
+    color: white;
+    padding: 12px;
+}
+
+.img-product {
+    height:120px;
+}
+
+.text-white {
+    color:white !important;
+}
+
+.white-bg {
+    background-color:white;
+}
+
+.padding {
+    padding:40px;
+}
+
+.action-btn {
+    margin: 5px !important;   
+    padding: 0.25rem 0.8rem;
+}
