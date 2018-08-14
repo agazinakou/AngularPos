@@ -8,7 +8,7 @@
     <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="c-field">
         <label class="c-field__label">Email Address</label>
-        <input class="c-input u-mb-small" type="email" placeholder="" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+        <input class="c-input u-mb-small" type="email" placeholder="" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
       </div>
       <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
           <div *ngIf="f.email.errors.required">Email is required</div>
@@ -17,7 +17,7 @@
 
       <div class="c-field">
         <label class="c-field__label">Password</label>
-        <input class="c-input u-mb-small" type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
+        <input class="c-input u-mb-small" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
       </div>
       <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
           <div *ngIf="f.password.errors.required">Password is required</div>

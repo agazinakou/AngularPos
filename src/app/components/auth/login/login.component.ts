@@ -29,8 +29,13 @@ export class LoginComponent implements OnInit {
     // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
+    } else {
+      this.auth(this.loginForm.value);
     }
 
-    alert('SUCCESS!! :-)')
+  }
+
+  private auth(a){
+    console.log(a);
   }
 }
