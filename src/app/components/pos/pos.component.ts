@@ -1,6 +1,8 @@
 import { CinetpayService } from './../../services/cinetpay.service';
 import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert';
+import { FirestoreService } from '../../services/firestore.service';
+import { NotifyService } from '../../services/notify.service';
 
 @Component({
   selector: 'app-pos',
@@ -16,7 +18,11 @@ export class PosComponent implements OnInit {
   cartTotal: number;
   cartNumItems: number;
 
-  constructor(private cinetpay : CinetpayService) { }
+  constructor(
+    private cinetpay : CinetpayService, 
+    private firestore : FirestoreService,
+    private notify : NotifyService
+  ) { }
 
   ngOnInit() {
     this.products = [{
@@ -46,6 +52,20 @@ export class PosComponent implements OnInit {
       icon : 'nav-home-tab',
     }]
     this.content = this.products[0].content;
+
+    this.firestore.getDocuments("category")
+      .then((data) => {
+        if (data.length === 0) {
+          console.log(data);
+        }
+        else {
+          console.log(data);
+        }
+      })
+      .catch(err => {
+        this.notify.alert("Oup's une erreur est survenu :(");
+      });
+    
   }
 
   show(item){
