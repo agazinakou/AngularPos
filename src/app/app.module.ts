@@ -16,7 +16,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthComponent } from './services/auth/auth.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,6 @@ import { AuthComponent } from './services/auth/auth.component';
     SettingsComponent,
     NavComponent,
     LoginComponent,
-    AuthComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,8 +39,9 @@ import { AuthComponent } from './services/auth/auth.component';
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

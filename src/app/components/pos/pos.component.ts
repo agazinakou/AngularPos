@@ -63,7 +63,7 @@ export class PosComponent implements OnInit {
         }
       })
       .catch(err => {
-        this.notify.alert("Oup's une erreur est survenu :(");
+        this.notify.error2("Oup's une erreur est survenu :(");
       });
     
   }

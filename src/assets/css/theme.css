@@ -9224,3 +9224,9 @@ textarea.c-input {
 .l25 {
   line-height: 2.5;
 }
+
+
+.invalid-feedback {
+  color:red;
+  padding:0px;
+}
