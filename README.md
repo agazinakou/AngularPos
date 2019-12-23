@@ -1,5 +1,5 @@
 # AngularPos
-A real-time, simple web Point of Sale system written with [Angular 6](https://angular.io/), [Firebase](http://firebase.com/) (Cloud Firestore), [Strapi](https://strapi.io), [Bootstrap 4](https://getbootstrap.com/)
+A real-time, simple web Point of Sale system written with [Angular 8](https://angular.io/), [Firebase](http://firebase.com/) (Cloud Firestore), [Bootstrap 4](https://getbootstrap.com/)
 
 Don't re-invent the wheel, Just re-align It
 
