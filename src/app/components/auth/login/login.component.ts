@@ -1,21 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from '../../../services/auth/login.service';
-import { NotifyService } from '../../../services/notify.service';
+import { AuthenticationService } from '../../../services/authentication/authentication.service';
+import { NotifyService } from '../../../services/notify/notify.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   submitted = false;
+  loading: boolean = false;
 
   constructor(private formBuilder: FormBuilder, 
-    private loginService: LoginService, 
+    private AuthenticationService: AuthenticationService, 
     private router: Router,
     private notify : NotifyService) { }
 
@@ -42,9 +43,11 @@ export class LoginComponent implements OnInit {
   }
 
   private auth(a){
-    this.loginService.loginUser(a.email, a.password).then(a=>{
-      this.router.navigate(['/dash']);
-    }, err=>{
+    this.loading = !this.loading;
+    this.AuthenticationService.loginUser(a.email, a.password).then(a=>{
+      this.router.navigate(['admin', 'dashboard']);
+    }, err=> {
+      this.loading =  !this.loading;
       this.notify.error(err);
       console.log(err);
     })

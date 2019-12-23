@@ -1,0 +1,64 @@
+<div class="container-fluid padding">
+    <div class="row">
+      <div class="col-md-8">
+        <nav class="c-tabs">
+            <div class="c-tabs__list nav nav-tabs" id="products" role="productslist">
+              <a class="c-tabs__link text-white" *ngFor="let item of products" (click)="show(item)">{{ item.category }}</a>
+            </div>
+            <div class="container">
+              <div class="row">
+                  <div class="col-md-2" *ngFor="let a of content" (click)="panier(a)">
+                    <div style="padding-top:10px">
+                      <div class="c-avatar u-inline-flex u-mb-small">
+                        <img src="{{ a.image }}" alt="{{a.name}}" class="img-product">
+                        <div class="products-label">{{ a.name }}</div>                      
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+  
+        </nav>
+      </div>
+      <div class="col-md-4">
+        <div class="c-table-responsive@wide" style="background-color:white">
+          <table class="c-table">
+            <thead class="c-table__head">
+              <tr class="c-table__row">
+                <th class="c-table__cell c-table__cell--head">Quantity</th>
+                <th class="c-table__cell c-table__cell--head">Product</th>
+                <th class="c-table__cell c-table__cell--head">Price</th>
+                <th class="c-table__cell c-table__cell--head">Actions</th>
+              </tr>
+            </thead>
+  
+            <tbody *ngIf="basket != ''">
+              <tr class="c-table__row" *ngFor="let x of basket">
+                <td class="c-table__cell text-center">{{ x.quantity }}</td>
+                <th class="c-table__cell">{{ x.name }}</th>
+                <td class="c-table__cell">{{ x.price  | currency:'XOF':true }}</td>
+                <td class="c-table__cell">
+                  <button class="c-btn c-btn--info c-btn--small action-btn" (click)="add(x)">+</button>
+                  <button class="c-btn c-btn--warning c-btn--small action-btn" (click)="reduce(x)">-</button>
+                  <button class="c-btn c-btn--danger c-btn--small action-btn" (click)="remove(x)">x</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div *ngIf="basket == ''" class="text-center">
+            <p class="no-basket">Empty</p>
+          </div>
+          <div class="container">
+            <div class="row white-bg  padding-20">
+              <div class="col-6 white-bg l25">
+                Total: {{cartTotal | currency:'XOF':true}}
+              </div>
+              <div class="col-6">
+                <button class="c-btn c-btn--danger c-btn--fullwidth" (click)="checkout()">Buy</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

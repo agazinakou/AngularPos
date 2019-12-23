@@ -1,28 +1,36 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { AuthGuardService } from './services/authguard/auth-guard.service';
+import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
+import { HomeComponent } from './components/public/home/home.component';
 import { LoginComponent } from './components/auth/login/login.component';
-import { DashComponent } from './components/dashboard/dash/dash.component';
-import { SettingsComponent } from './components/dashboard/settings/settings.component';
-import { PosComponent } from './components/pos/pos.component';
-import { WelcomeComponent } from './components/welcome/welcome.component';
+import { PosComponent } from './components/public/pos/pos.component';
+
 
 const routes: Routes = [
-  { path: '', component: WelcomeComponent },
-  { path: 'pos', component: PosComponent },
-  { path: 'dash', component: DashComponent },
-  { path: 'settings', component: SettingsComponent },
-  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'pos',
+    component: PosComponent,
+  },
+  { 
+    path: 'admin', 
+    canActivate: [AngularFireAuthGuard],
+    loadChildren: './members/member-routing.module#MemberRoutingModule'
+  },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }
-export const routingComponents = [
-  WelcomeComponent,
-  PosComponent,
-  SettingsComponent,
-  DashComponent,
-  LoginComponent
-]

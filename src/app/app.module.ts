@@ -1,47 +1,66 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashComponent } from './components/dashboard/dash/dash.component';
-import { SettingsComponent } from './components/dashboard/settings/settings.component';
-import { PosComponent } from './components/pos/pos.component';
-import { FooterComponent } from './components/shared/footer/footer.component';
-import { HeaderComponent } from './components/shared/header/header.component';
-import { NavComponent } from './components/shared/nav/nav.component';
-import { SideComponent } from './components/shared/side/side.component';
-import { WelcomeComponent } from './components/welcome/welcome.component';
-import { LoginComponent } from './components/auth/login/login.component';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { environment } from '../environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
+//Component
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { HomeComponent } from './components/public/home/home.component';
+import { PosComponent } from './components/public/pos/pos.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { SidebarComponent } from './components/shared/sidebar/sidebar.component';
+import { HeaderComponent } from './components/shared/header/header.component';
+import { DashboardComponent } from './components/private/dashboard/dashboard/dashboard.component';
+
+//Services
+import { AuthGuardService } from './services/authguard/auth-guard.service';
+import { AuthenticationService } from './services/authentication/authentication.service';
+
+//AngularFire
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
+
+//Env
+import { environment } from '../environments/environment';
+import { MemberRoutingModule } from './members/member-routing.module';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    SideComponent,
-    WelcomeComponent,
-    PosComponent,
-    DashComponent,
-    SettingsComponent,
-    NavComponent,
     LoginComponent,
+    RegisterComponent,
+    HomeComponent,
+    PosComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
+    AngularFireStorageModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MemberRoutingModule,
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [
+    AngularFireAuthGuard,
+    AuthGuardService,
+    AuthenticationService,
+  ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
