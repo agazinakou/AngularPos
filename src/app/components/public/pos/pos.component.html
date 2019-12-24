@@ -2,13 +2,13 @@
     <div class="row">
       <div class="col-md-8">
         <nav class="c-tabs">
-            <div class="c-tabs__list nav nav-tabs" id="products" role="productslist">
+            <div class="c-tabs__list nav nav-tabs bg-primary" id="products" role="productslist">
               <a class="c-tabs__link text-white" *ngFor="let item of products" (click)="show(item)">{{ item.category }}</a>
             </div>
             <div class="container">
               <div class="row">
                   <div class="col-md-2" *ngFor="let a of content" (click)="panier(a)">
-                    <div style="padding-top:10px">
+                    <div style="padding-top:10px;cursor: grab;">
                       <div class="c-avatar u-inline-flex u-mb-small">
                         <img src="{{ a.image }}" alt="{{a.name}}" class="img-product">
                         <div class="products-label">{{ a.name }}</div>                      
@@ -51,7 +51,7 @@
           <div class="container">
             <div class="row white-bg  padding-20">
               <div class="col-6 white-bg l25">
-                Total: {{cartTotal | currency:'XOF':true}}
+                Total: {{ cartTotal | currency:'$':true }}
               </div>
               <div class="col-6">
                 <button class="c-btn c-btn--danger c-btn--fullwidth" (click)="checkout()">Buy</button>
