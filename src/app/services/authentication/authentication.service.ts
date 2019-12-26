@@ -89,10 +89,8 @@ export class AuthenticationService {
   checkIfUserIsConnected() {
     return new Promise((resolve, reject) => {
       firebase.auth().onAuthStateChanged(function(user) {
-        console.log(user);
         if (user) {
           resolve(true);
-
         } else {
           resolve(false);
         }

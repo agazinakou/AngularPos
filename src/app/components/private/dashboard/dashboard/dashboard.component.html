@@ -1,102 +1,96 @@
-<app-sidebar></app-sidebar>
-<main class="o-page__content">
-  <app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="c-state-card c-state-card--info">
+        <h4 class="c-state-card__title">TODAY</h4>
+        <span class="c-state-card__number">0</span>
+        <p class="c-state-card__status">
+          <i class="feather icon-trending-up"></i> 0% Increase
+        </p>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="c-state-card c-state-card--info">
-          <h4 class="c-state-card__title">TODAY</h4>
-          <span class="c-state-card__number">0</span>
-          <p class="c-state-card__status">
-            <i class="feather icon-trending-up"></i> 0% Increase
-          </p>
-
-        </div>
       </div>
-
-      <div class="col-md-4">
-        <div class="c-state-card c-state-card--success">
-          <h4 class="c-state-card__title">Revenue Today</h4>
-          <span class="c-state-card__number">$0</span>
-          <p class="c-state-card__status">
-            <i class="feather icon-trending-down"></i> 0% Decrease
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="c-state-card c-state-card--danger">
-          <h4 class="c-state-card__title">Revenue</h4>
-          <span class="c-state-card__number">$0</span>
-          <p class="c-state-card__status">
-            <i class="feather icon-trending-up"></i> 0% Increase
-          </p>
-        </div>
-      </div>
-
     </div>
 
+    <div class="col-md-4">
+      <div class="c-state-card c-state-card--success">
+        <h4 class="c-state-card__title">Revenue Today</h4>
+        <span class="c-state-card__number">$0</span>
+        <p class="c-state-card__status">
+          <i class="feather icon-trending-down"></i> 0% Decrease
+        </p>
+      </div>
+    </div>
 
-    <div class="row">
-      <div class="col-md-4">
-        <div class="c-card" data-mh="dashboard3-cards" style="height: 432px;">
-          <h4>Top 5 products</h4>
-          <p class="u-mb-medium">Best product sold.</p>
+    <div class="col-md-4">
+      <div class="c-state-card c-state-card--danger">
+        <h4 class="c-state-card__title">Revenue</h4>
+        <span class="c-state-card__number">$0</span>
+        <p class="c-state-card__status">
+          <i class="feather icon-trending-up"></i> 0% Increase
+        </p>
+      </div>
+    </div>
 
-          <div class="o-line u-pb-small u-mb-small u-border-bottom">
-            <div class="o-media">
-              <div class="o-media__img u-mr-small">
-                <div class="c-avatar c-avatar--xsmall">
-                  <img class="c-avatar__img" src="assets/img/chicken.jpeg" alt="Name">
-                </div>
-              </div>
+  </div>
 
-              <div class="o-media__body">
-                <h6>Chicken</h6>
-                <p>Category : Food</p>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="c-card" data-mh="dashboard3-cards" style="height: 432px;">
+        <h4>Top 5 products</h4>
+        <p class="u-mb-medium">Best product sold.</p>
+
+        <div class="o-line u-pb-small u-mb-small u-border-bottom">
+          <div class="o-media">
+            <div class="o-media__img u-mr-small">
+              <div class="c-avatar c-avatar--xsmall">
+                <img class="c-avatar__img" src="assets/img/chicken.jpeg" alt="Name">
               </div>
             </div>
 
-            <h6>0</h6>
+            <div class="o-media__body">
+              <h6>Chicken</h6>
+              <p>Category : Food</p>
+            </div>
           </div>
 
+          <h6>0</h6>
         </div>
-      </div>
-      <div class="col-md-8">
-        <div class="c-table-responsive@wide">
-          <table class="c-table">
-            <thead class="c-table__head">
-              <tr class="c-table__row">
-                <th class="c-table__cell c-table__cell--head">Reference</th>
-                <th class="c-table__cell c-table__cell--head">Commande</th>
-                <th class="c-table__cell c-table__cell--head">Amount</th>
-                <th class="c-table__cell c-table__cell--head">Date</th>
-                <th class="c-table__cell c-table__cell--head">Actions</th>
-              </tr>
-            </thead>
 
-            <tbody>
-              <tr class="c-table__row">
-                <td class="c-table__cell">232838F</td>
-                <td class="c-table__cell">Adipisicing veniam consectetur.</td>
-                <th class="c-table__cell">$500</th>
-                <td class="c-table__cell">19-11-2018</td>
-                <td class="c-table__cell">
-                  <div class="c-dropdown dropdown">
-                    <a href="#" class="c-btn c-btn--info has-icon">
-                      <i class="feather icon-file"></i>
-                    </a>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
     </div>
+    <div class="col-md-8">
+      <div class="c-table-responsive@wide">
+        <table class="c-table">
+          <thead class="c-table__head">
+            <tr class="c-table__row">
+              <th class="c-table__cell c-table__cell--head">Reference</th>
+              <th class="c-table__cell c-table__cell--head">Commande</th>
+              <th class="c-table__cell c-table__cell--head">Amount</th>
+              <th class="c-table__cell c-table__cell--head">Date</th>
+              <th class="c-table__cell c-table__cell--head">Actions</th>
+            </tr>
+          </thead>
 
-
-    <app-footer></app-footer>
+          <tbody>
+            <tr class="c-table__row">
+              <td class="c-table__cell">232838F</td>
+              <td class="c-table__cell">Adipisicing veniam consectetur.</td>
+              <th class="c-table__cell">$500</th>
+              <td class="c-table__cell">19-11-2018</td>
+              <td class="c-table__cell">
+                <div class="c-dropdown dropdown">
+                  <a href="#" class="c-btn c-btn--info has-icon">
+                    <i class="feather icon-file"></i>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-</main>
+
+
+</div>

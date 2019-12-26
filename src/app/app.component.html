@@ -1,1 +1,14 @@
-<router-outlet></router-outlet>
+<div *ngIf="active">
+    <app-sidebar></app-sidebar>
+    <main class="o-page__content">
+        <app-navbar></app-navbar>
+
+        <router-outlet></router-outlet>
+
+        <app-footer></app-footer>
+    </main>
+</div>
+
+<div *ngIf="!active">
+    <router-outlet></router-outlet>
+</div>

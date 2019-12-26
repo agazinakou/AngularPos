@@ -2,16 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from '../components/private/dashboard/dashboard/dashboard.component';
-import { NavbarComponent } from '../components/shared/navbar/navbar.component';
-import { SidebarComponent } from '../components/shared/sidebar/sidebar.component';
-import { HeaderComponent } from '../components/shared/header/header.component';
-import { FooterComponent } from '../components/shared/footer/footer.component';
+import { CategoriesComponent } from '../components/private/categories/categories/categories.component';
 
 
 const routes: Routes = [
   { 
-    path: 'dashboard', 
+    path: 'admin/dashboard', 
     component: DashboardComponent 
+  },
+  { 
+    path: 'admin/categories', 
+    component: CategoriesComponent 
   }
 ];
 
@@ -19,10 +20,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     DashboardComponent,
-    NavbarComponent,
-    SidebarComponent,
-    HeaderComponent,
-    FooterComponent
+    CategoriesComponent,
   ],
   imports: [
     CommonModule,

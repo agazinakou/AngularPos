@@ -34,6 +34,7 @@ import { environment } from '../environments/environment';
 import { MemberRoutingModule } from './members/member-routing.module';
 
 
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,10 @@ import { MemberRoutingModule } from './members/member-routing.module';
     RegisterComponent,
     HomeComponent,
     PosComponent,
+    NavbarComponent,
+    SidebarComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +59,7 @@ import { MemberRoutingModule } from './members/member-routing.module';
     ReactiveFormsModule,
     HttpClientModule,
     MemberRoutingModule,
+    DataTablesModule
   ],
   providers: [
     AngularFireAuthGuard,

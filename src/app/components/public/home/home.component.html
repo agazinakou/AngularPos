@@ -1,6 +1,9 @@
 <div class="container" style="padding-top:40px;">
     <div class="row u-justify-center">
       <div class="col-lg-6 u-text-center">
+        <a class="u-text-center">
+          <img src="assets/img/logo.png" alt="AngularPOS" title="AngularPOS" width="100px">
+        </a>
         <h2 class="u-mb-small">Welcome to AngularPOS</h2>
         <p class="u-text-large u-mb-large">Votre POS Compatible Mobile money</p>
       </div>
@@ -19,7 +22,7 @@
             Login
             <i class="feather icon-chevron-right"></i>
           </a>
-          <a class="c-btn c-btn--info has-arrow" routerLink="/dashboard" *ngIf="isAuth">
+          <a class="c-btn c-btn--info has-arrow" (click)="dashboard()" *ngIf="isAuth">
             My dashboard
             <i class="feather icon-chevron-right"></i>
           </a>
@@ -42,5 +45,4 @@
     </div>
 
 
-    <app-footer></app-footer>
   </div>
