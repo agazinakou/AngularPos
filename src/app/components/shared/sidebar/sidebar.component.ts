@@ -16,7 +16,6 @@ export class SidebarComponent implements OnInit {
   
   categories(){
     this.router.navigate(['admin', 'categories']);
-    alert(1);
   }
 
   logOut(){

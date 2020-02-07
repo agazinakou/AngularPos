@@ -13,7 +13,7 @@ const routes: Routes = [
   { 
     path: 'admin/categories', 
     component: CategoriesComponent 
-  }
+  },
 ];
 
 

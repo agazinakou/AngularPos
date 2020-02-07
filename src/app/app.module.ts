@@ -46,7 +46,7 @@ import { DataTablesModule } from 'angular-datatables';
     NavbarComponent,
     SidebarComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
