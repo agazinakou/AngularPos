@@ -36,11 +36,11 @@
 
   <div class="row">
     <div class="col-md-4">
-      <div class="c-card" data-mh="dashboard3-cards" style="height: 432px;">
+      <div class="c-card" data-mh="dashboard3-cards" style="height: 432px;" *ngIf="categories">
         <h4>Top 5 products</h4>
         <p class="u-mb-medium">Best product sold.</p>
 
-        <div class="o-line u-pb-small u-mb-small u-border-bottom">
+        <div class="o-line u-pb-small u-mb-small u-border-bottom" *ngFor="let item of categories">
           <div class="o-media">
             <div class="o-media__img u-mr-small">
               <div class="c-avatar c-avatar--xsmall">
@@ -49,14 +49,31 @@
             </div>
 
             <div class="o-media__body">
-              <h6>Chicken</h6>
+              <h6>{{ item.data.name }}</h6>
               <p>Category : Food</p>
             </div>
           </div>
 
           <h6>0</h6>
         </div>
+        
 
+      </div>
+      <div class="c-card" data-mh="dashboard3-cards" style="height: 432px;" *ngIf="!categories">
+        <div class="sk-fading-circle">
+          <div class="sk-circle1 sk-circle"></div>
+          <div class="sk-circle2 sk-circle"></div>
+          <div class="sk-circle3 sk-circle"></div>
+          <div class="sk-circle4 sk-circle"></div>
+          <div class="sk-circle5 sk-circle"></div>
+          <div class="sk-circle6 sk-circle"></div>
+          <div class="sk-circle7 sk-circle"></div>
+          <div class="sk-circle8 sk-circle"></div>
+          <div class="sk-circle9 sk-circle"></div>
+          <div class="sk-circle10 sk-circle"></div>
+          <div class="sk-circle11 sk-circle"></div>
+          <div class="sk-circle12 sk-circle"></div>
+        </div>
       </div>
     </div>
     <div class="col-md-8">

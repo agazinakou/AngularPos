@@ -48,7 +48,8 @@ export class FirebaseService {
         querySnapshot
           .forEach((doc: any) => {
             obj.push({
-              data: doc.id,
+              id: doc.id,
+              data: doc.data()
             });
           });
 
