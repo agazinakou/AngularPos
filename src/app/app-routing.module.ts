@@ -28,7 +28,7 @@ const routes: Routes = [
   { 
     path: 'admin', 
     canActivate: [AngularFireAuthGuard],
-    loadChildren: './members/member-routing.module#MemberRoutingModule'
+    loadChildren: () => import('./members/member-routing.module').then(m => m.MemberRoutingModule)
   },
 ];
 
