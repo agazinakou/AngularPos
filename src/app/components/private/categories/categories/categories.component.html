@@ -1,12 +1,12 @@
 <div class="container">
 
-  
+
     <div class="row">
       <div class="col-md-4">
         <div class="c-card" data-mh="dashboard3-cards" style="height: 432px;">
           <h4>Top 5 products</h4>
           <p class="u-mb-medium">Best product sold.</p>
-  
+
           <div class="o-line u-pb-small u-mb-small u-border-bottom">
             <div class="o-media">
               <div class="o-media__img u-mr-small">
@@ -14,16 +14,16 @@
                   <img class="c-avatar__img" src="assets/img/chicken.jpeg" alt="Name">
                 </div>
               </div>
-  
+
               <div class="o-media__body">
                 <h6>Chicken</h6>
                 <p>Category : Food</p>
               </div>
             </div>
-  
+
             <h6>0</h6>
           </div>
-  
+
         </div>
       </div>
       <div class="col-md-8">
@@ -32,32 +32,101 @@
             <thead class="c-table__head">
               <tr class="c-table__row">
                 <th class="c-table__cell c-table__cell--head">Reference</th>
-                <th class="c-table__cell c-table__cell--head">Commande</th>
-                <th class="c-table__cell c-table__cell--head">Amount</th>
-                <th class="c-table__cell c-table__cell--head">Date</th>
+                <th class="c-table__cell c-table__cell--head">Name</th>
+                <th class="c-table__cell c-table__cell--head">Status</th>
+                <th class="c-table__cell c-table__cell--head">Created_at</th>
+                <th class="c-table__cell c-table__cell--head">Updated_at</th>
                 <th class="c-table__cell c-table__cell--head">Actions</th>
               </tr>
             </thead>
-  
+
             <tbody>
-              <tr class="c-table__row">
-                <td class="c-table__cell">232838F</td>
-                <td class="c-table__cell">Adipisicing veniam consectetur.</td>
-                <th class="c-table__cell">$500</th>
-                <td class="c-table__cell">19-11-2018</td>
+              <tr class="c-table__row" *ngFor="let category of categories">
+                <td class="c-table__cell">{{ category.id }}</td>
+                <td class="c-table__cell">{{ category.data.name }}</td>
+                <td class="c-table__cell">{{ category.data.status }}</td>
+                <th class="c-table__cell">{{ category.data.created_at | date }}</th>
+                <td class="c-table__cell">{{ category.data.updated_at | date }}</td>
                 <td class="c-table__cell">
                   <div class="c-dropdown dropdown">
-                    <a href="#" class="c-btn c-btn--info has-icon">
-                      <i class="feather icon-file"></i>
+                    <a href="#" class="c-btn c-btn--info c-btn--small has-icon u-mr-small">
+                      <i class="feather icon-edit"></i>
+                    </a>
+                    <a class="c-btn c-btn--danger c-btn--small has-icon" (click)="delete( category.id )">
+                      <i class="feather icon-delete"></i>
                     </a>
                   </div>
                 </td>
               </tr>
             </tbody>
           </table>
+          <div class="c-card" data-mh="dashboard3-cards" *ngIf="!categories">
+            <div class="sk-fading-circle">
+              <div class="sk-circle1 sk-circle"></div>
+              <div class="sk-circle2 sk-circle"></div>
+              <div class="sk-circle3 sk-circle"></div>
+              <div class="sk-circle4 sk-circle"></div>
+              <div class="sk-circle5 sk-circle"></div>
+              <div class="sk-circle6 sk-circle"></div>
+              <div class="sk-circle7 sk-circle"></div>
+              <div class="sk-circle8 sk-circle"></div>
+              <div class="sk-circle9 sk-circle"></div>
+              <div class="sk-circle10 sk-circle"></div>
+              <div class="sk-circle11 sk-circle"></div>
+              <div class="sk-circle12 sk-circle"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  
-  
+
+
   </div>
+
+
+  <div class="fab" data-toggle="modal" data-target="#modal1"> + </div>
+
+
+<!-- Modal -->
+<div class="c-modal modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1">
+  <div class="c-modal__dialog modal-dialog" role="document">
+      <div class="c-modal__content">
+          <div class="c-modal__body">
+              <span class="c-modal__close" data-dismiss="modal" aria-label="Close" #closeModal>
+                  <i class="feather icon-x"></i>
+              </span>
+
+              <h3>Add new category</h3>
+              <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+                <div class="c-field u-mb-medium" style="margin-top:10px">
+                  <label class="c-field__label" for="name">Name</label>
+                  <input class="c-input" type="text" id="name" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                </div>
+                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">Name is required</div>
+                    <div *ngIf="f.name.errors.minlength">Name must be at least 2 characters</div>
+                </div>
+                <div class="c-field u-mb-xsmall">
+                  <label class="c-switch" for="status">
+                    <input class="c-switch__input" id="status" type="checkbox" checked="" formControlName="status" [ngClass]="{ 'is-invalid': submitted && f.status.errors }">
+                    <span class="c-switch__label">Status</span>
+                  </label>
+                </div>
+
+                <div class="o-line">
+                  <a data-dismiss="modal" aria-label="Close" class="c-btn c-btn--info c-btn--outline">Cancel</a>
+                  <button type="submit" class="c-btn c-btn--info" *ngIf="!loading">Save</button>
+                  <button class="c-btn c-btn--info" *ngIf="loading">
+                    <div class="spinner">
+                      <div class="bounce1"></div>
+                      <div class="bounce2"></div>
+                      <div class="bounce3"></div>
+                    </div>
+                  </button>
+                </div>
+              </form>
+
+          </div>
+      </div><!-- // .c-modal__content -->
+  </div><!-- // .c-modal__dialog -->
+</div><!-- // .c-modal -->

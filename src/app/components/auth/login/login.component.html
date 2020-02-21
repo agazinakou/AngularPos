@@ -3,9 +3,9 @@
       <span class="c-icon c-icon--large u-mb-small">
         <img src="assets/img/logo.png" alt="AngularPOS">
       </span>
-  
+
       <h4 class="u-mb-medium">Authentification</h4>
-      <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="c-field">
           <label class="c-field__label">Email Address</label>
           <input class="c-input u-mb-small" type="email" placeholder="" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
@@ -14,14 +14,14 @@
             <div *ngIf="f.email.errors.required">Email is required</div>
             <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
         </div>
-  
+
         <div class="c-field">
           <label class="c-field__label">Password</label>
           <input class="c-input u-mb-small" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
-        </div>
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
-            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+              <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+          </div>
         </div>
         <button class="c-btn c-btn--fullwidth c-btn--info" *ngIf="!loading">Login</button>
         <button class="c-btn c-btn--fullwidth c-btn--info" *ngIf="loading">
@@ -31,7 +31,7 @@
             <div class="bounce3"></div>
           </div>
         </button>
-        
+
       </form>
     </div>
   </div>
