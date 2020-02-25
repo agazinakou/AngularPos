@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from '../components/private/dashboard/dashboard/dashboard.component';
 import { CategoriesComponent } from '../components/private/categories/categories/categories.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductsComponent } from '../components/private/products/products.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,10 @@ const routes: Routes = [
     path: 'admin/categories',
     component: CategoriesComponent
   },
+  {
+    path: 'admin/products',
+    component: ProductsComponent
+  }
 ];
 
 
@@ -22,6 +27,7 @@ const routes: Routes = [
   declarations: [
     DashboardComponent,
     CategoriesComponent,
+    ProductsComponent
   ],
   imports: [
     CommonModule,
