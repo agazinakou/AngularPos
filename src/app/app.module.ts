@@ -23,11 +23,11 @@ import { AuthGuardService } from './services/authguard/auth-guard.service';
 import { AuthenticationService } from './services/authentication/authentication.service';
 
 //AngularFire
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
 
 //Env
 import { environment } from '../environments/environment';

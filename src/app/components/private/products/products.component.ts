@@ -2,7 +2,7 @@ import { Product } from './../../../interfaces/product';
 import { NotifyService } from './../../../services/notify/notify.service';
 import { Category } from './../../../interfaces/category';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/compat';
 
 
 import { Observable, of } from 'rxjs';

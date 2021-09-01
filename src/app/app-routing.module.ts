@@ -1,7 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { AuthGuardService } from './services/authguard/auth-guard.service';
-import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
+import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
 import { HomeComponent } from './components/public/home/home.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { PosComponent } from './components/public/pos/pos.component';
