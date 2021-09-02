@@ -1,0 +1,58 @@
+<div class="col-md-12">
+  <p-table dataKey="id" stateKey="products" [value]="products" styleClass="p-datatable-striped" [rows]="10"
+    [paginator]="true" #yp1 lang="fr">
+    <ng-template pTemplate="caption">
+      <div class="row">
+        <div class="col-md-6 text-start">
+          <h5 class="mt-2">Products</h5>
+        </div>
+        <div class="col-md-6 text-right">
+          <button (click)="refresh()" pButton type="button" icon="pi pi-refresh" class="p-button-sm p-button-link mr-2"></button>
+          <button (click)="add()" label="Add new product" pButton type="button" icon="pi pi-plus" class="p-button-sm"></button>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="name">
+          Name
+          <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+        </th>
+        <th pSortableColumn="price">Price <p-sortIcon field="price"></p-sortIcon></th>
+        <th pSortableColumn="stock">Stock <p-sortIcon field="stock"></p-sortIcon></th>
+        <th pSortableColumn="product">Category <p-sortIcon field="product"></p-sortIcon></th>
+        <th pSortableColumn="status">Statut <p-sortIcon field="status"></p-sortIcon></th>
+        <th class="text-right" pSortableColumn="date">Created at <p-sortIcon field="date"></p-sortIcon>
+        </th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price  | currency }}</td>
+        <td>{{ product.stock }}</td>
+        <td>{{ product.category }}</td>
+        <td>
+          <span class="badge bg-primary text-white" *ngIf="product.status">Enable</span>
+          <span class="badge bg-danger text-white" *ngIf="!product.status">Disable</span>
+        </td>
+        <td class="text-right">{{ product.created_at | date: "dd/MM/yyyy" }}</td>
+        <td class="text-right">
+          <button (click)="edit(product)" pButton type="button" icon="pi pi-pencil" class="p-button-sm mr-2"></button>
+          <button (click)="delete(product.id)" pButton type="button" icon="pi pi-trash" class="p-button-sm p-button-danger"></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage" class="d-none">
+      <tr>
+        <td colspan="7">No products found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+</div>
+
+<p-dialog *ngIf="display" [header]="product.name ? 'Category: ' + product.name : 'Add new'"  [resizable]="true" [maximizable]="true" [modal]="true" header="Title" position="top" [(visible)]="display" [style]="{width: '50vw'}">
+  <app-product [display]="display" [product]="product" (call)="saver($event)"></app-product>
+</p-dialog>

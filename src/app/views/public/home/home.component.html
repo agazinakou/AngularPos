@@ -1,0 +1,48 @@
+<div class="container" style="padding-top:40px;">
+
+  <div class="row justify-content-center">
+    <div class="col-md-12 text-center">
+      <a href="">
+        <img src="assets/img/logo.png" alt="AngularPOS" title="AngularPOS" width="100px">
+      </a>
+      <h2>Welcome to AngularPOS</h2>
+      <p>Your mobile money compatible POS</p>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body ai-icon">
+          <svg id="icon-menu" viewBox="0 0 24 24" width="40" height="40" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1 my-2"><path width="7" height="7" d="M3 3 L10 3 L10 10 L3 10 Z" style="stroke-dasharray: 28, 48; stroke-dashoffset: 0;"></path><path width="7" height="7" d="M14 3 L21 3 L21 10 L14 10 Z" style="stroke-dasharray: 28, 48; stroke-dashoffset: 0;"></path><path width="7" height="7" d="M14 14 L21 14 L21 21 L14 21 Z" style="stroke-dasharray: 28, 48; stroke-dashoffset: 0;"></path><path width="7" height="7" d="M3 14 L10 14 L10 21 L3 21 Z" style="stroke-dasharray: 28, 48; stroke-dashoffset: 0;"></path></svg>
+          <h4 class="my-2">Dashboard</h4>
+          <p>Management of products, stock and configuration of POS</p>
+          <a href="javascript:void(0);" class="btn my-2 btn-primary" routerLink="/login" *ngIf="!isAuth">
+            Login
+          </a>
+          <a href="javascript:void(0);" class="btn my-2 btn-primary" (click)="dashboard()" *ngIf="isAuth">
+            My dashboard
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card bg-primary">
+        <div class="card-body ai-icon text-white">
+          <svg id="rocket-icon" class="my-2" viewBox="0 0 24 24" width="40" height="40" stroke="currentColor"
+            stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <h4 class="my-2 text-white">Start POS</h4>
+          <p>Start selling and cash out of payments now with Mobile Money</p>
+          <a routerLink="/pos" class="btn my-2 btn-light">
+            Begin
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

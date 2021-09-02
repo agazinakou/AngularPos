@@ -1,0 +1,141 @@
+<div class="fixed-content-box">
+  <div class="head-name">
+    <a [routerLink]="['dashboard']" class="brand-logo">
+      <img width="100" src="assets/img/logo.png" alt="logo">
+    </a>
+    <span class="close-fixed-content fa-left d-lg-none">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+        viewBox="0 0 24 24" version="1.1">
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <polygon points="0 0 24 0 24 24 0 24" />
+          <rect fill="#000000" opacity="0.3"
+            transform="translate(15.000000, 12.000000) scale(-1, 1) rotate(-90.000000) translate(-15.000000, -12.000000) "
+            x="14" y="7" width="2" height="10" rx="1" />
+          <path
+            d="M3.7071045,15.7071045 C3.3165802,16.0976288 2.68341522,16.0976288 2.29289093,15.7071045 C1.90236664,15.3165802 1.90236664,14.6834152 2.29289093,14.2928909 L8.29289093,8.29289093 C8.67146987,7.914312 9.28105631,7.90106637 9.67572234,8.26284357 L15.6757223,13.7628436 C16.0828413,14.136036 16.1103443,14.7686034 15.7371519,15.1757223 C15.3639594,15.5828413 14.7313921,15.6103443 14.3242731,15.2371519 L9.03007346,10.3841355 L3.7071045,15.7071045 Z"
+            fill="#000000" fill-rule="nonzero"
+            transform="translate(9.000001, 11.999997) scale(-1, -1) rotate(90.000000) translate(-9.000001, -11.999997) " />
+        </g>
+      </svg>
+    </span>
+  </div>
+  <div class="fixed-content-body dz-scroll" id="DZ_W_Fixed_Contant">
+    <div class="tab-content" id="menu">
+      <div class="tab-pane fade show active" id="dashboard" role="tabpanel">
+        <ul class="metismenu tab-nav-menu">
+          <li>
+            <a [routerLink]="['dashboard']" routerLinkActive="active" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                height="24px" viewBox="0 0 24 24" version="1.1">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <rect x="0" y="0" width="24" height="24" />
+                  <rect fill="#000000" x="4" y="4" width="7" height="7" rx="1.5" />
+                  <path
+                    d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z"
+                    fill="#000000" opacity="0.3" />
+                </g>
+              </svg>
+              Dashbaord
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-pane fade" id="apps">
+        <ul class="metismenu tab-nav-menu">
+          <li class="nav-label">POS</li>
+          <li>
+            <a [routerLink]="['categories']" routerLinkActive="active" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                height="24px" viewBox="0 0 24 24" version="1.1">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <rect x="0" y="0" width="24" height="24" />
+                  <polygon fill="#000000" opacity="0.3" points="5 7 5 15 19 15 19 7" />
+                  <path
+                    d="M11,19 L11,16 C11,15.4477153 11.4477153,15 12,15 C12.5522847,15 13,15.4477153 13,16 L13,19 L14.5,19 C14.7761424,19 15,19.2238576 15,19.5 C15,19.7761424 14.7761424,20 14.5,20 L9.5,20 C9.22385763,20 9,19.7761424 9,19.5 C9,19.2238576 9.22385763,19 9.5,19 L11,19 Z"
+                    fill="#000000" opacity="0.3" />
+                  <path
+                    d="M5,7 L5,15 L19,15 L19,7 L5,7 Z M5.25,5 L18.75,5 C19.9926407,5 21,5.8954305 21,7 L21,15 C21,16.1045695 19.9926407,17 18.75,17 L5.25,17 C4.00735931,17 3,16.1045695 3,15 L3,7 C3,5.8954305 4.00735931,5 5.25,5 Z"
+                    fill="#000000" fill-rule="nonzero" />
+                </g>
+              </svg>
+              <span class="nav-text">Categories</span>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['products']" routerLinkActive="active" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                height="24px" viewBox="0 0 24 24" version="1.1">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <rect x="0" y="0" width="24" height="24" />
+                  <polygon fill="#000000" opacity="0.3" points="5 7 5 15 19 15 19 7" />
+                  <path
+                    d="M11,19 L11,16 C11,15.4477153 11.4477153,15 12,15 C12.5522847,15 13,15.4477153 13,16 L13,19 L14.5,19 C14.7761424,19 15,19.2238576 15,19.5 C15,19.7761424 14.7761424,20 14.5,20 L9.5,20 C9.22385763,20 9,19.7761424 9,19.5 C9,19.2238576 9.22385763,19 9.5,19 L11,19 Z"
+                    fill="#000000" opacity="0.3" />
+                  <path
+                    d="M5,7 L5,15 L19,15 L19,7 L5,7 Z M5.25,5 L18.75,5 C19.9926407,5 21,5.8954305 21,7 L21,15 C21,16.1045695 19.9926407,17 18.75,17 L5.25,17 C4.00735931,17 3,16.1045695 3,15 L3,7 C3,5.8954305 4.00735931,5 5.25,5 Z"
+                    fill="#000000" fill-rule="nonzero" />
+                </g>
+              </svg>
+              <span class="nav-text">Products</span>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['sales']" routerLinkActive="active" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                height="24px" viewBox="0 0 24 24" version="1.1">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <rect x="0" y="0" width="24" height="24" />
+                  <polygon fill="#000000" opacity="0.3" points="5 7 5 15 19 15 19 7" />
+                  <path
+                    d="M11,19 L11,16 C11,15.4477153 11.4477153,15 12,15 C12.5522847,15 13,15.4477153 13,16 L13,19 L14.5,19 C14.7761424,19 15,19.2238576 15,19.5 C15,19.7761424 14.7761424,20 14.5,20 L9.5,20 C9.22385763,20 9,19.7761424 9,19.5 C9,19.2238576 9.22385763,19 9.5,19 L11,19 Z"
+                    fill="#000000" opacity="0.3" />
+                  <path
+                    d="M5,7 L5,15 L19,15 L19,7 L5,7 Z M5.25,5 L18.75,5 C19.9926407,5 21,5.8954305 21,7 L21,15 C21,16.1045695 19.9926407,17 18.75,17 L5.25,17 C4.00735931,17 3,16.1045695 3,15 L3,7 C3,5.8954305 4.00735931,5 5.25,5 Z"
+                    fill="#000000" fill-rule="nonzero" />
+                </g>
+              </svg>
+              <span class="nav-text">Sales</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="deznav">
+  <div class="deznav-scroll">
+    <ul class="nav menu-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#dashboard">
+          <svg id="icon-home1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-home">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#apps">
+          <svg id="icon-apps" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-users">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <a (click)="logOut()" style="cursor: pointer;" class="logout-btn text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round" class="feather feather-log-out">
+      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+      <polyline points="16 17 21 12 16 7"></polyline>
+      <line x1="21" y1="12" x2="9" y2="12"></line>
+    </svg></a>
+</div>

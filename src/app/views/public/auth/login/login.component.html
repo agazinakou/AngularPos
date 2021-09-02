@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <div class="text-center">
+            <img src="assets/img/logo.png" width="150" alt="AngularPOS" routerLink="/home">
+            <h4>Authentification</h4>
+          </div>
+          <hr>
+          <nf-form [fields]="fields" (callBack)="callBack($event)"></nf-form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

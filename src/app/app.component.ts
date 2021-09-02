@@ -14,21 +14,9 @@ export class AppComponent {
   route : string;
 
   constructor(public location: Location, public router : Router) {
-    router.events.subscribe((val) => {
-      if(location.path() != ''){
-        this.route = location.path();
-        if (this.route.indexOf('admin') > -1) {
-          this.active = true;
-        } else {
-          this.active = false;
-        }
-      } else {
-        this.route = 'home';
-      }
-    });
-  }
-
-  ngOnInit() {
+    if(location.path() == ''){
+      this.router.navigate(['home']);
+    }
   }
 
 }

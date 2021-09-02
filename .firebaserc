@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angularpos-379cd": {
+      "hosting": {
+        "AnglularPOS": [
+          "angularpos-379cd"
+        ]
+      }
+    }
+  }
+}

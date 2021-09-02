@@ -27,12 +27,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/datatables.net-dt/css/jquery.dataTables.css"
+              "node_modules/primeng/resources/themes/saga-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "src/assets/css/theme.css",
+              "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.js",
-              "node_modules/datatables.net/js/jquery.dataTables.js"
+              "src/assets/vendor/global/global.min.js",
+              "src/assets/js/theme.js",
+              "src/assets/js/deznav-init.js",
+              "src/assets/vendor/svganimation/vivus.min.js",
+              "src/assets/vendor/svganimation/svg.animation.js"
             ],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -126,6 +132,10 @@
               "devServerTarget": "AnglularPOS:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
