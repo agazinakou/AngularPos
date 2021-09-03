@@ -3,6 +3,7 @@ export class Product {
     name : string;
     price : number;
     stock : number;
+    quantity? : number;
     category : any;
     status : boolean;
     updated_at : Date;
@@ -13,6 +14,7 @@ export class Product {
       this.name = obj.name;
       this.price = obj.price;
       this.stock = obj.stock;
+      this.quantity = obj.quantity;
       this.category = obj.category;
       this.status = obj.status;
       this.updated_at = obj.updated_at;

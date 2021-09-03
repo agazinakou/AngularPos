@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import * as moment from 'moment';
+import { Category, Product } from 'src/app/core/models';
 import { FirebaseService, NotifyService } from 'src/app/core/services';
 import Swal from 'sweetalert2'
 
@@ -16,9 +19,13 @@ export class PosComponent implements OnInit {
   cartTotal: number;
   cartNumItems: number;
 
+
+  categories: any;
+
   constructor(
     private firestore : FirebaseService,
-    private notify : NotifyService
+    private notify : NotifyService,
+    private afs: AngularFirestore
   ) { }
 
   ngOnInit() {
@@ -63,6 +70,25 @@ export class PosComponent implements OnInit {
         this.notify.error2("Oup's une erreur est survenu :(");
       });
 
+      this.fetch();
+  }
+
+  fetch(){
+    this.afs.collection('categories').valueChanges().subscribe((res : any) => {
+      this.categories = res;
+      console.log(this.categories);
+        this.categories.forEach(async (element, key) => {
+          this.categories[key].products = await this.findProducts(element.id);
+        });
+    });
+  }
+
+  async findProducts(category){
+    return new Promise(resolve => {
+      this.afs.collection('products', ref => ref.where('category', '==', category)).valueChanges().subscribe((res : any) => {
+        resolve(res);
+      });
+    });
   }
 
   show(item){
@@ -70,7 +96,7 @@ export class PosComponent implements OnInit {
   }
 
   panier(a){
-
+    a = { quantity: 1, ...a }
     if(this.basket == '' || this.basket == null){
       this.backup.push(a);
       this.basket.push(a);
@@ -158,10 +184,31 @@ export class PosComponent implements OnInit {
 
   checkout() {
     if (this.basket.length > 0) {
-      //this.cinetpay.tr(this.cartTotal);
+      //Pay
+      console.log(this.basket);
+      this.saveOrder(this.basket);
     } else {
-      Swal.fire("Error", "Votre panier est vide", "error");
+      Swal.fire("Empty", "", "error");
     }
+  }
+
+  saveOrder(basket: any){
+    console.log('add');
+    let data = {
+      id: this.afs.createId(),
+      orderId: this.afs.createId(),
+      carts: JSON.stringify(basket),
+      amount: this.cartTotal,
+      status: true,
+      created_at: moment().format(),
+      updated_at: moment().format()      
+    };
+
+    this.afs.collection("sales").doc(data.id).set(data).then(() => {
+      Swal.fire("OK", "", "success").then(()=> location.reload());
+    }, err => {
+      this.notify.error2("Oup's une erreur est survenu :(");
+    });
   }
 
 

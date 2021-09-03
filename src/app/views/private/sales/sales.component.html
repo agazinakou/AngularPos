@@ -13,33 +13,28 @@
     </ng-template>
     <ng-template pTemplate="header">
       <tr>
-        <th pSortableColumn="name">
-          Name
-          <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+        <th pSortableColumn="orderId">
+          Order
+          <p-columnFilter type="text" field="orderId" display="menu"></p-columnFilter>
         </th>
-        <th pSortableColumn="price">Price <p-sortIcon field="price"></p-sortIcon></th>
-        <th pSortableColumn="stock">Stock <p-sortIcon field="stock"></p-sortIcon></th>
-        <th pSortableColumn="sale">Category <p-sortIcon field="sale"></p-sortIcon></th>
+        <th class="text-right" pSortableColumn="amount">Amount <p-sortIcon field="amount"></p-sortIcon></th>
+        <th pSortableColumn="carts">Cart <p-sortIcon field="carts"></p-sortIcon></th>
         <th pSortableColumn="status">Statut <p-sortIcon field="status"></p-sortIcon></th>
-        <th class="text-right" pSortableColumn="date">Created at <p-sortIcon field="date"></p-sortIcon>
-        </th>
-        <th></th>
+        <th class="text-right" pSortableColumn="date">Pay at <p-sortIcon field="date"></p-sortIcon></th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-sale>
       <tr>
-        <td>{{ sale.name }}</td>
-        <td>{{ sale.price  | currency }}</td>
-        <td>{{ sale.stock }}</td>
-        <td>{{ sale.category }}</td>
+        <td>{{ sale.orderId }}</td>
+        <td class="text-right">{{ sale.amount  | currency }}</td>
         <td>
-          <span class="badge bg-primary text-white" *ngIf="sale.status">Enable</span>
-          <span class="badge bg-danger text-white" *ngIf="!sale.status">Disable</span>
+          <span *ngFor="let item of carts(sale.carts)" class="badge badge-light mr-1 font-weight-normal">{{ item.quantity }} x {{ item.name }}</span>
+        </td>
+        <td>
+          <span class="badge bg-primary text-white" *ngIf="sale.status">Pay</span>
+          <span class="badge bg-danger text-white" *ngIf="!sale.status">Not pay</span>
         </td>
         <td class="text-right">{{ sale.created_at | date: "dd/MM/yyyy" }}</td>
-        <td class="text-right">
-          <button (click)="show(sale)" pButton type="button" icon="pi pi-eye" class="p-button-sm mr-2"></button>
-        </td>
       </tr>
     </ng-template>
     <ng-template pTemplate="emptymessage" class="d-none">

@@ -36,4 +36,8 @@ export class SalesComponent implements OnInit {
     
   }
 
+  carts(cart: any){
+    return JSON.parse(cart);
+  }
+
 }

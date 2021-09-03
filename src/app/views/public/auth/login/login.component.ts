@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
     label: 'Email address',
     inputType: 'email',
     name: 'email',
+    value: 'agazinakou@gmail.com',
     validations: [{
       name: 'required',
       validator: Validators.required,
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
     label: 'Password',
     inputType: 'password',
     name: 'password',
+    value: 'valar_dohaeris',
     validations: [{
       name: 'required',
       validator: Validators.required,

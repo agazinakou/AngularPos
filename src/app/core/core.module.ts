@@ -7,6 +7,8 @@ import { ButtonModule } from 'primeng/button';
 import { ToolbarModule } from 'primeng/toolbar';
 import { CalendarModule } from 'primeng/calendar';
 import { DialogModule } from 'primeng/dialog';
+import { TabViewModule } from 'primeng/tabview';
+import { DataViewModule } from 'primeng/dataview';
 
 @NgModule({
  imports: [
@@ -16,7 +18,9 @@ import { DialogModule } from 'primeng/dialog';
    ButtonModule,
    ToolbarModule,
    CalendarModule,
-   DialogModule
+   DialogModule,
+   TabViewModule,
+   DataViewModule
   ],
  declarations: [],
  exports: [
@@ -27,7 +31,9 @@ import { DialogModule } from 'primeng/dialog';
    ButtonModule,
    ToolbarModule,
    CalendarModule,
-   DialogModule
+   DialogModule,
+   TabViewModule,
+   DataViewModule
   ]
 })
 export class CoreModule {}

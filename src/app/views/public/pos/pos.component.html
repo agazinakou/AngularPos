@@ -1,61 +1,64 @@
 <div class="container-fluid padding">
     <div class="row">
       <div class="col-md-8">
-        <nav class="c-tabs">
-            <div class="c-tabs__list nav nav-tabs bg-primary" id="products" role="productslist">
-              <a class="c-tabs__link text-white" *ngFor="let item of products" (click)="show(item)">{{ item.category }}</a>
-            </div>
-            <div class="container minBlock">
-              <div class="row">
-                  <div class="col-md-2" *ngFor="let a of content" (click)="panier(a)">
-                    <div style="padding-top:10px;cursor: grab;">
-                      <div class="c-avatar u-inline-flex u-mb-small">
-                        <img src="{{ a.image }}" alt="{{a.name}}" class="img-product">
-                        <div class="products-label">{{ a.name }}</div>
+        <div class="card">
+          <p-tabView>
+            <p-tabPanel [header]="category.name" *ngFor="let category of categories">
+              <p-dataView [value]="category.products" [paginator]="category?.products?.length > 10 ? true : false" [rows]="10" layout="grid">
+                <ng-template let-product pTemplate="gridItem" class="bg-transparent row">
+                    <div class="col-md-4 pl-0 cp" (click)="panier(product)">
+                      <div class="media bg-blur rounded m-1">
+                        <img class="mr-3" src="https://decizia.com/blog/wp-content/uploads/2017/06/default-placeholder.png" width="50" alt="Generic placeholder image">
+                        <div class="media-body">
+                          <h5 class="mt-0">{{ product.name }}</h5>
+                          {{ product.price | currency }}
+                        </div>
                       </div>
                     </div>
-                  </div>
-              </div>
-            </div>
-        </nav>
+                </ng-template>
+              </p-dataView>
+            </p-tabPanel>
+          </p-tabView>
+        </div>
       </div>
       <div class="col-md-4">
-        <div class="c-table-responsive@wide" style="background-color:white">
-          <div style="min-height: 450px !important;">
-            <table class="c-table">
-              <thead class="c-table__head">
-                <tr class="c-table__row">
-                  <th class="c-table__cell c-table__cell--head">Quantity</th>
-                  <th class="c-table__cell c-table__cell--head">Product</th>
-                  <th class="c-table__cell c-table__cell--head">Price</th>
-                  <th class="c-table__cell c-table__cell--head">Actions</th>
-                </tr>
-              </thead>
-
-              <tbody *ngIf="basket != ''">
-                <tr class="c-table__row" *ngFor="let x of basket">
-                  <td class="c-table__cell text-center">{{ x.quantity }}</td>
-                  <th class="c-table__cell">{{ x.name }}</th>
-                  <td class="c-table__cell">{{ x.price  | currency:'XOF'}}</td>
-                  <td class="c-table__cell">
-                    <button class="c-btn c-btn--info c-btn--small action-btn" (click)="add(x)">+</button>
-                    <button class="c-btn c-btn--warning c-btn--small action-btn" (click)="reduce(x)">-</button>
-                    <button class="c-btn c-btn--danger c-btn--small action-btn" (click)="remove(x)">x</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div *ngIf="basket == ''" class="text-center">
-              <p class="no-basket">Empty</p>
+        <div class="card">
+          <div>
+            <div style="min-height: 520px !important;">
+              <table class="table text-dark">
+                <thead>
+                  <tr>
+                    <th class="text-capitalize">Q</th>
+                    <th class="text-capitalize">Product</th>
+                    <th class="text-capitalize">Price</th>
+                    <th class="text-capitalize text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let x of basket">
+                    <td>{{ x.quantity }}</td>
+                    <td>{{ x.name }}</td>
+                    <td>{{ x.price  | currency }}</td>
+                    <td class="text-right">
+                      <button class="btn btn-primary btn-sm px-2 py-1 mr-1" (click)="add(x)">+</button>
+                      <button class="btn btn-warning btn-sm px-2 py-1 mr-1" (click)="reduce(x)">-</button>
+                      <button class="btn btn-danger btn-sm px-2 py-1" (click)="remove(x)">x</button>
+                    </td>
+                  </tr>
+                  <tr *ngIf="!basket">
+                    <td colspan="7">No products found.</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-          </div>
-          <div class="container">
-            <div class="row white-bg  padding-20">
-              <div class="col-6 white-bg l25">
-                Total: {{ cartTotal | currency }}
-              </div>
-              <div class="col-6">
-                <button class="c-btn c-btn--danger c-btn--fullwidth" (click)="checkout()">Buy</button>
+            <div class="container m-2">
+              <div class="row align-content-center">
+                <div class="col-md-6">
+                  <p class="mt-2 text-dark"><span class="mr-3">Total:</span> <strong>{{ cartTotal | currency }}</strong></p>
+                </div>
+                <div class="col-md-6 text-right">
+                  <button class="btn btn-primary btn-block" (click)="checkout()">Buy</button>
+                </div>
               </div>
             </div>
           </div>

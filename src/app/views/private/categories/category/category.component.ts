@@ -35,10 +35,6 @@ export class CategoryComponent implements OnInit {
           name: 'required',
           validator: Validators.required,
           message: 'Name is required'
-        }, {
-          name: 'pattern',
-          validator: Validators.pattern('^[a-zA-Z]+$'),
-          message: 'Accept only text'
         }]
       },{
         type: 'select',

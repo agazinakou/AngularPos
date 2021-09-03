@@ -32705,7 +32705,6 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 .photo-content .cover-photo {
-  background: url(../images/profile/cover.jpg);
   background-size: cover;
   background-position: center;
   min-height: 250px;
@@ -40867,7 +40866,6 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   }
 
   .welcome-content {
-    background: url("../images/1.jpg");
     background-size: cover;
     background-position: center;
     height: 100%;
@@ -45259,4 +45257,89 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 
 .p-datatable .p-datatable-thead > tr > th {
     padding: .5rem .5rem;
+}
+
+@media only screen and (min-width: 991px){
+  [data-sidebar-style="mini"][data-layout="vertical"] .fixed-content-box + .header + .deznav + .content-body {
+    margin-left: 20.937rem !important;
+  }
+}
+
+
+@media only screen and (min-width: 768px) {
+  [data-sidebar-style="mini"] .content-body {
+    margin-left: 20.937rem !important;
+  }
+}
+
+[data-header-position="fixed"] .content-body {
+  padding-top: 5rem;
+}
+
+
+/* Glassmorphism card effect */
+.card {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+}
+
+.p-tabview .p-tabview-nav {
+  background: transparent;
+  border: none;
+  border-width: inherit;
+}
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  background: transparent;
+  border-width: 0 0 2px 0;
+  border-color: transparent;
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  background: transparent;
+  border-color: #7a01f4;
+  color: #7a01f4;
+}
+
+.p-tabview .p-tabview-nav li:not(.p-highlight):not(.p-disabled):hover .p-tabview-nav-link {
+  background: #ffffff3b;
+}
+
+.p-tabview .p-tabview-panels {
+  background: transparent;
+}
+
+
+.p-dataview .p-dataview-header {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 0; 
+}
+
+.p-dataview .p-dataview-content {
+  background: transparent;
+}
+
+.cp {
+  cursor: pointer;
+}
+
+.bg-blur {
+  background-color: #ffffff80 !important;
+}
+
+.p-paginator {
+  background: transparent;
+  border: solid transparent;
+}
+
+.p-dataview-content .p-grid.p-nogutter.grid.grid-nogutter {
+  display: flex;
+}
+
+.p-tabview .p-tabview-nav {
+  border: none !important;
 }

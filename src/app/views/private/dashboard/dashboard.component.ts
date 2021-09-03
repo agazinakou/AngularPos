@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -13,45 +14,28 @@ import { FirebaseService, NotifyService } from 'src/app/core/services';
 })
 export class DashboardComponent implements OnInit {
 
-  categories : any;
-  products : Observable<Product>;
   state: any;
+  
+  categories : number;
+  products : number;
+  sales: number;
 
-  constructor(private firestore : FirebaseService, public notify : NotifyService,
-    private router : Router) {
+  constructor(private afs: AngularFirestore, private router : Router) {
     this.state = this.router.getCurrentNavigation().extras.state;
     if(this.state && this.state.reload) window.location.reload();
   }
 
   ngOnInit() {
-    this.firestore.getDocuments("category")
-      .then((data) => {
-        if (data.length !== 0) {
-          this.categories = data;
-        }
-        else {
-          console.log('Empty');
-        }
-      })
-      .catch(err => {
-        this.notify.error2("Oup's une erreur est survenu :(");
-      });
-      this.getProducts();
-  }
+    this.afs.collection('sales').valueChanges().subscribe((res : any) => {
+      this.sales = res.length;
+    });
 
-  getProducts(){
-    this.firestore.getDocuments("products")
-    .then((data) => {
-      if (data.length !== 0) {
-        this.products = data;
-        console.log(data);
-      }
-      else {
-        console.log('Empty');
-      }
-    })
-    .catch(err => {
-      this.notify.error2("Oup's une erreur est survenu :(");
+    this.afs.collection('products').valueChanges().subscribe((res : any) => {
+      this.products = res.length;
+    });
+
+    this.afs.collection('categories').valueChanges().subscribe((res : any) => {
+      this.categories = res.length;
     });
   }
 
