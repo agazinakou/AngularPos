@@ -15,12 +15,13 @@
       <tr>
         <th pSortableColumn="orderId">
           Order
-          <p-columnFilter type="text" field="orderId" display="menu"></p-columnFilter>
         </th>
         <th class="text-right" pSortableColumn="amount">Amount <p-sortIcon field="amount"></p-sortIcon></th>
-        <th pSortableColumn="carts">Cart <p-sortIcon field="carts"></p-sortIcon></th>
+        <th pSortableColumn="carts">
+          Cart <p-columnFilter type="text" field="carts" display="menu"></p-columnFilter>
+        </th>
         <th pSortableColumn="status">Statut <p-sortIcon field="status"></p-sortIcon></th>
-        <th class="text-right" pSortableColumn="date">Pay at <p-sortIcon field="date"></p-sortIcon></th>
+        <th class="text-right" pSortableColumn="created_at">Pay at <p-sortIcon field="created_at"></p-sortIcon></th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-sale>
