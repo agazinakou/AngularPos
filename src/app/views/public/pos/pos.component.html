@@ -6,7 +6,7 @@
             <p-tabPanel [header]="category.name" *ngFor="let category of categories">
               <p-dataView [value]="category.products" [paginator]="category?.products?.length > 10 ? true : false" [rows]="10" layout="grid">
                 <ng-template let-product pTemplate="gridItem" class="bg-transparent row">
-                    <div class="col-md-4 pl-0 cp" (click)="panier(product)">
+                    <div class="p-col-12 pl-0 cp" (click)="panier(product)">
                       <div class="media bg-blur rounded m-1">
                         <img class="mr-3" src="https://decizia.com/blog/wp-content/uploads/2017/06/default-placeholder.png" width="50" alt="Generic placeholder image">
                         <div class="media-body">

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-4">
-    <div class="card">
+    <div class="card cp" [routerLink]="['/admin/categories']">
       <div class="card-body">
         <h4 class="card-title">Categories</h4>
         <p class="card-text">{{ categories }}</p>
@@ -8,7 +8,7 @@
     </div>
   </div>
   <div class="col-md-4">
-    <div class="card">
+    <div class="card cp" [routerLink]="['/admin/products']">
       <div class="card-body">
         <h4 class="card-title">Products</h4>
         <p class="card-text">{{ products }}</p>
@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="col-md-4">
-    <div class="card bg-primary">
+    <div class="card bg-primary cp" [routerLink]="['/admin/sales']">
       <div class="card-body">
         <h4 class="card-title text-white">Sales</h4>
         <p class="card-text text-white">{{ sales }}</p>
