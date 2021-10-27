@@ -33,8 +33,11 @@ export class ProductComponent implements OnInit {
   ngOnInit(){
     this.afs.collection('categories').valueChanges().subscribe((res : any) => {
       this.categories = [];
-      res.forEach((element, key) => {
-       this.categories.push(key + ' - ' +element.name);
+      res.forEach((element) => {
+       this.categories.push({
+         'label': element.name,
+         'value': element.id
+        });
       });
     });
 
@@ -90,7 +93,15 @@ export class ProductComponent implements OnInit {
         name: 'status',
         value: this.product?.status ? 'enable' : 'disable',
         col: 12,
-        options: ['enable', 'disable']
+        options: [
+          {
+            label: 'Enable',
+            value: true
+          },{
+            label: 'Disable',
+            value: false
+          }
+        ]
       },{
         type: 'button',
         color: 'primary',
@@ -100,6 +111,7 @@ export class ProductComponent implements OnInit {
     ];
     setTimeout(() => {
       this.fields[3].options = this.categories;
+      this.fields[3].value = this.product?.category;
     }, 2000);
 
 

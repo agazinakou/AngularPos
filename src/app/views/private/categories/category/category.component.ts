@@ -48,7 +48,15 @@ export class CategoryComponent implements OnInit {
         name: 'status',
         col: 12,
         value: this.category?.status ? 'enable' : 'disable',
-        options: ['enable', 'disable']
+        options: [
+          {
+            label: 'Enable',
+            value: true
+          },{
+            label: 'Disable',
+            value: false
+          }
+        ]
       },  {
         type: 'button',
         color: 'primary',

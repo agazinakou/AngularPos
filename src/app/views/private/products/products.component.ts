@@ -20,7 +20,7 @@ export class ProductsComponent implements OnInit {
   display: boolean = false;
   product : any;
 
-  constructor(private firestore : FirebaseService, public notify : NotifyService, 
+  constructor(private firestore : FirebaseService, public notify : NotifyService,
     private afs: AngularFirestore) { }
 
   ngOnInit() {
@@ -48,8 +48,6 @@ export class ProductsComponent implements OnInit {
         this.products[key].category = await this.findCategory(element.category);
       });
     });
-
-
   }
 
   delete(id: string){
@@ -92,13 +90,7 @@ export class ProductsComponent implements OnInit {
     this.product = [];
   }
 
-  formatCategory(str: any){
-    str = str.split(' - ')[0];
-    console.log(this.categories[str].id);
-    return this.categories[str].id;
-  }
-
-  async findCategory(category_id){
+  async findCategory(category_id: string){
     return new Promise((resolve, reject) => {
       this.afs.collection<Category>('categories').doc(category_id).ref.get().then((doc) => {
         if (doc.exists) {
@@ -109,7 +101,7 @@ export class ProductsComponent implements OnInit {
     })
     .catch((err) => {
         console.error(err);
-    }); 
+    });
     });
   }
 
@@ -118,7 +110,7 @@ export class ProductsComponent implements OnInit {
       name: formData.name,
       price: formData.price,
       stock: formData.stock,
-      category: this.formatCategory(formData.category),
+      category: formData.category,
       status: formData.status == 'enable' ? true : false,
       updated_at: moment().format()
     };
@@ -139,7 +131,7 @@ export class ProductsComponent implements OnInit {
       name: formData.name,
       price: formData.price,
       stock: formData.stock,
-      category: this.formatCategory(formData.category),
+      category: formData.category,
       status: formData.status == 'enable' ? true : false,
       created_at: moment().format(),
       updated_at: moment().format()
