@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Validators } from '@angular/forms';
-import { FieldConfig } from 'ngx-nomad-form';
+import { FieldConfig, FormConfig } from 'ngx-nomad-form';
 import { Category } from 'src/app/core/models';
 
 @Component({
@@ -19,11 +19,16 @@ export class CategoryComponent implements OnInit {
   //My fields
   fields: FieldConfig[] = [];
 
+  formConfig: FormConfig = {
+    name: 'categoryForm',
+    enctype: 'text/plain',
+  };
+
   constructor() { }
 
   ngOnInit(){
     this.isAddForm = this.category?.name ? false : true;
-    
+
     this.fields = [
       {
         type: 'input',
@@ -31,6 +36,7 @@ export class CategoryComponent implements OnInit {
         inputType: 'text',
         name: 'name',
         value: this.category?.name,
+        col: 12,
         validations: [{
           name: 'required',
           validator: Validators.required,
@@ -40,12 +46,13 @@ export class CategoryComponent implements OnInit {
         type: 'select',
         label: 'Status',
         name: 'status',
+        col: 12,
         value: this.category?.status ? 'enable' : 'disable',
-        col: 6,
         options: ['enable', 'disable']
       },  {
         type: 'button',
         color: 'primary',
+        col: 12,
         label: this.category.name ? 'Update' : 'Save'
       }
     ];

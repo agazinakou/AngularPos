@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Validators } from '@angular/forms';
-import { FieldConfig } from 'ngx-nomad-form';
+import { FieldConfig, FormConfig } from 'ngx-nomad-form';
 import { Category } from 'src/app/core/models';
 
 @Component({
@@ -14,7 +14,7 @@ export class ProductComponent implements OnInit {
   @Input() product: any;
   @Input() display: boolean = false;
   @Output() call = new EventEmitter<any>();
-  
+
   categories: any[] = [];
 
 
@@ -22,6 +22,11 @@ export class ProductComponent implements OnInit {
 
   //My fields
   fields: FieldConfig[] = [];
+
+  formConfig: FormConfig = {
+    name: 'productForm',
+    enctype: 'text/plain',
+  };
 
   constructor(private afs: AngularFirestore) {}
 
@@ -34,13 +39,14 @@ export class ProductComponent implements OnInit {
     });
 
     this.isAddForm = this.product?.name ? false : true;
-     
+
     this.fields = [
       {
         type: 'input',
         label: 'Name',
         inputType: 'text',
         name: 'name',
+        col: 12,
         value: this.product?.name,
         validations: [{
           name: 'required',
@@ -53,6 +59,7 @@ export class ProductComponent implements OnInit {
         inputType: 'number',
         name: 'price',
         value: this.product?.price,
+        col: 12,
         validations: [{
           name: 'required',
           validator: Validators.required,
@@ -64,6 +71,7 @@ export class ProductComponent implements OnInit {
         inputType: 'number',
         name: 'stock',
         value: this.product?.stock,
+        col: 12,
         validations: [{
           name: 'required',
           validator: Validators.required,
@@ -74,19 +82,20 @@ export class ProductComponent implements OnInit {
         label: 'Category',
         name: 'category',
         value: this.product?.category,
-        col: 6,
+        col: 12,
         options: []
       },{
         type: 'select',
         label: 'Status',
         name: 'status',
         value: this.product?.status ? 'enable' : 'disable',
-        col: 6,
+        col: 12,
         options: ['enable', 'disable']
       },{
         type: 'button',
         color: 'primary',
-        label: this.product.name ? 'Update' : 'Save'
+        label: this.product.name ? 'Update' : 'Save',
+        col: 12
       }
     ];
     setTimeout(() => {

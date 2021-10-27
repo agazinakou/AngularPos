@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FieldConfig } from 'ngx-nomad-form';
+import { FieldConfig, FormConfig } from 'ngx-nomad-form';
 import { AuthenticationService, NotifyService } from 'src/app/core/services';
 
 @Component({
@@ -11,6 +11,11 @@ import { AuthenticationService, NotifyService } from 'src/app/core/services';
 })
 export class LoginComponent implements OnInit {
 
+  formConfig: FormConfig = {
+    name: 'loginForm',
+    enctype: 'text/plain',
+  };
+
   //My fields
   fields: FieldConfig[] = [{
     type: 'input',
@@ -18,6 +23,7 @@ export class LoginComponent implements OnInit {
     inputType: 'email',
     name: 'email',
     value: 'agazinakou@gmail.com',
+    col: 12,
     validations: [{
       name: 'required',
       validator: Validators.required,
@@ -29,6 +35,7 @@ export class LoginComponent implements OnInit {
     inputType: 'password',
     name: 'password',
     value: 'valar_dohaeris',
+    col: 12,
     validations: [{
       name: 'required',
       validator: Validators.required,
@@ -37,7 +44,8 @@ export class LoginComponent implements OnInit {
   },  {
     type: 'button',
     color: 'primary',
-    label: 'login'
+    label: 'login',
+    col: 12
   }];
 
   constructor(private formBuilder: FormBuilder,

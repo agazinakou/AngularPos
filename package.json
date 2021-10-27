@@ -27,7 +27,7 @@
     "firebase": "^9.0.0",
     "jquery": "^3.5.1",
     "moment": "^2.24.0",
-    "ngx-nomad-form": "0.0.3",
+    "ngx-nomad-form": "0.0.8",
     "primeicons": "^4.1.0",
     "primeng": "^12.1.0",
     "rxfire": "^6.0.0",
